@@ -2265,6 +2265,22 @@ describe('primitive props', () => {
 			`);
 			eq(res, STR('el'));
 		});
+
+		test.concurrent('code_point_at', async () => {
+			eq(
+				await exe(`
+					<: "A".code_point_at(0)
+				`),
+				NUM(65)
+			);
+
+			eq(
+				await exe(`
+					<: "A".code_point_at(1)
+				`),
+				NULL
+			);
+		});
 	});
 
 	describe('arr', () => {
@@ -2623,6 +2639,23 @@ describe('std', () => {
 			<: Str:lf
 			`);
 			eq(res, STR('\n'));
+		});
+
+		test.concurrent('from_code_point', async () => {
+			eq(
+				await exe(`
+					<: Str:from_code_point(65)
+				`),
+				STR("A")
+			);
+
+			assert.equal(
+				await exe(`
+					<: Str:from_code_point(1114112)
+				`)
+				.catch(e => e instanceof RuntimeError),
+				true
+			);
 		});
 	});
 

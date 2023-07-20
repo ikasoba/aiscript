@@ -139,6 +139,10 @@ arr.sortの比較関数として使用できます。
 a > b ならば -1、a == b ならば 0、a < b ならば 1 を返します。
 arr.sortの比較関数として使用できます。
 
+### #Str:from_code_point(code: num): str
+文字コードから文字を生成します。
+1114111 よりも大きな数の場合はエラーが起こります。
+
 ### @(_v_: str).to_num(): num | null
 値を表す数値を取得します。  
 
@@ -163,6 +167,9 @@ arr.sortの比較関数として使用できます。
 ### @(_v_: str).upper(): str
 
 ### @(_v_: str).lower(): str
+
+### @(_v_: str).code_point_at(_i_: num): num | null
+指定されたインデックスの文字コードを取得します。
 
 ## :: Arr
 

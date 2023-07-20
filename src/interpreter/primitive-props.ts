@@ -68,6 +68,12 @@ export const PRIMITIVE_PROPS = {
 			const char = chars[i.value];
 			return char ? STR(char) : NULL;
 		}),
+
+		code_point_at: (target: VStr): VFn => FN_NATIVE(([i], _opts) => {
+			assertNumber(i);
+			const code = target.value.codePointAt(i.value);
+			return code !== undefined ? NUM(code) : NULL;
+		}),
 	},
 
 	arr: {

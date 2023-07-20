@@ -316,6 +316,15 @@ export const std: Record<string, Value> = {
 			return NUM(1);
 		}
 	}),
+
+	'Str:from_code_point': FN_NATIVE(([codePoint]) => {
+		assertNumber(codePoint);
+		try {
+			return STR(String.fromCodePoint(codePoint.value));
+		} catch (_) {
+			throw new RuntimeError(`invalid code point ${codePoint.value}`);
+		}
+	}),
 	//#endregion
 
 	//#region Arr
