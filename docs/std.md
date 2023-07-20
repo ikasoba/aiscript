@@ -131,15 +131,15 @@ _min_ および _max_ を渡した場合、_min_ <= x, x <= _max_ の整数、
 型: `str`  
 改行コード(LF)です。  
 
-### #Str:lt(a: str, b: str): num
+### #Str:lt(_a_: str, _b_: str): num
 a < b ならば -1、a == b ならば 0、a > b ならば 1 を返します。
 arr.sortの比較関数として使用できます。
 
-### #Str:gt(a: str, b: str): num
+### #Str:gt(_a_: str, _b_: str): num
 a > b ならば -1、a == b ならば 0、a < b ならば 1 を返します。
 arr.sortの比較関数として使用できます。
 
-### #Str:from_code_point(code: num): str
+### #Str:from_code_point(_code_: num): str
 文字コードから文字を生成します。
 1114111 よりも大きな数の場合はエラーが起こります。
 
