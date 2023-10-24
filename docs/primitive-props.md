@@ -68,6 +68,9 @@ Core:range(0,2).push(4) //[0,1,2,4]
 配列の最後の要素を取り出します。  
 
 ### @(_v_: arr).shift(): value
+### @(_v_: arr).remove(_i_: num): value
+配列から_i_番目の要素を取り除きます。
+返り値はその取り除かれた要素です。
 
 ### @(_a_: arr).concat(_b_: arr): arr
 配列を連結します。  

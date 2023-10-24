@@ -106,6 +106,12 @@ const PRIMITIVE_PROPS: {
 			return target.value.shift() ?? NULL;
 		}),
 
+		remove: (target: VArr): VFn => FN_NATIVE(async ([i], _opts) => {
+			assertNumber(i);
+
+			return target.value.splice(i.value, 1)[0] ?? NULL;
+		}),
+
 		concat: (target: VArr): VFn => FN_NATIVE(async ([x], _opts) => {
 			assertArray(x);
 			return ARR(target.value.concat(x.value));
@@ -187,6 +193,7 @@ const PRIMITIVE_PROPS: {
 		copy: (target: VArr): VFn => FN_NATIVE(async (_, _opts) => {
 			return ARR([...target.value]);
 		}),
+
 		sort: (target: VArr): VFn => FN_NATIVE(async ([comp], opts) => {
 			const mergeSort = async (arr: Value[], comp: VFn): Promise<Value[]> => {
 				if (arr.length <= 1) return arr;

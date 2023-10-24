@@ -2432,6 +2432,18 @@ describe('primitive props', () => {
 			eq(res, ARR([NUM(1), ARR([NUM(2), NUM(3)])]));
 		});
 
+		test.concurrent('remove', async () => {
+			const res = await exe(`
+			let arr = [1, 2, 3]
+			let item = arr.remove(1)
+			<: [item, arr]
+			`);
+			eq(res, ARR([
+				NUM(2),
+				ARR([NUM(1), NUM(3)])
+			]));
+		});
+
 		test.concurrent('concat', async () => {
 			const res = await exe(`
 			let arr = [1, 2, 3]
